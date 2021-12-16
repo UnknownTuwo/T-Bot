@@ -13,14 +13,13 @@ namespace T_Bot
 
         static async Task MainAsync()
         {
-            var discord = new DiscordClient(new DiscordConfiguration())
+            var discord = new DiscordClient(new DiscordConfiguration
             {
                 Token = Environment.GetEnvironmentVariable("DiscordToken"),
                 TokenType = TokenType.Bot,
                 Intents = DiscordIntents.AllUnprivileged
-            };
+            });
             
-
             await discord.ConnectAsync();
             await Task.Delay(-1);
 
