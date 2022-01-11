@@ -6,12 +6,9 @@ namespace T_Bot
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            MainAsync().GetAwaiter().GetResult();
-        }
+        static async Task Main(string[] args) => await new Program().InitBot(args);
 
-        static async Task MainAsync()
+        private async Task InitBot(string[] args)
         {
             var discord = new DiscordClient(new DiscordConfiguration
             {
@@ -22,7 +19,6 @@ namespace T_Bot
             
             await discord.ConnectAsync();
             await Task.Delay(-1);
-
         }
     }
 }
